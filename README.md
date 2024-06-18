@@ -2,19 +2,20 @@
 
 ## Problem Domain
 
-A portion of area / domain of the users' business needed
-- This area / domain is aligned with the scope of the system to be designed
-- Comprised of multiple collections of "things"
+A portion of area or domain that the users' business need we (analysts) care about
+- In scope of the system we design
+- Comprised of multiple collections of "things" (one actor per collection)
 
 ## "Things" Problem Domain Objects / Classes
 
 A small set of problem domain for one actor, involving items an actor interacts with, objects in system possesses. They have little to do with programming knowledges, but must be fully understood before development
-- For embedded software for telecomms, they are:
+
+For embedded software for telecomms, they are:
   - Ethernet
   - VoIP
   - Video protocols
   - Video codecs
-- For the Ridge Mountain Olympics CSMS, they are:
+For the Ridge Mountain Olympics CSMS, they are:
   - Sales
   - Shippers
   - advertisement
@@ -22,18 +23,19 @@ A small set of problem domain for one actor, involving items an actor interacts 
   - Invoices
   - Payments
   - Products
-- For photography business, they are:
+For photography business, they are:
   - Camera
   - Filming equipments
   - eCommerce
   - advertisement
-  - Shippers
+  - Shippers (ship physical photo copies)
   - Clothing
   - Customers
   - Invoices
   - Payments
   - Products
-- Modeled as domain classes or data entities
+
+Modeled as domain classes or data entities
 
 ## Identify "Things" (Problem Domain Objects / Classes)
 
@@ -42,26 +44,27 @@ A small set of problem domain for one actor, involving items an actor interacts 
 Identify in which developers work with users in an open group setting
 
 1. Identify a user and a set of use cases.
-2. Brainstorm with the user to identify problem domain objects / classes involved when carrying out the use case
-  - that is, "things" are about which information should be captured by the system
-3. Use the types of things (categories) to systematically ask questions about potential things, such as:
-  - Any tangible things you store information about?
+2. Brainstorm with the user to identify problem domain objects / classes involved, when carrying out the use case
+3. Use "types of things" / categories to systematically question potential things, such as:
+  - Any tangible things you store information?
   - Any locations involved?
-  - Any roles played by people that you need to remember?
+  - Any other people / partners / firms you have to meet or talk to?
+  - Any other people playing a role in your job?
 4. Continue to work with all types of users and stakeholders to expand the brainstorming list
 5. Merge the results, eliminate any duplicates, and compile an initial list
 
 ### Noun technique
 
-Identify by finding and classifying the nouns in a dialog or description
+Identify by finding & classifying the nouns in a dialog or description
 
 1. Study use cases, actors, other information (e.g., input & outputs) about the system
-2. Study other info from existing systems, current procedures, and current reports or forms
-  - The goal is to identify all nouns
+2. Study other info from existing systems, current procedures, current reports / forms
+  - Goal: identify all nouns
 3. Refine the gathered list of nouns:
-  - Is it important and inside the scope
-  - Is it really should be excluded, (e.g., a report or an arribute is not a problem domain object / class)
-  - Is it require further research to decide whether it should be included or excluded
+  - Is it important
+  - Is it in scope
+  - Is it really a thing (e.g., a report or an arribute is not)
+  - Is it requiring further research / doublechecks
 4. Create a master list of all nouns identified, add note on items that should be included
 5. Review the list with users, stakeholders, and team members and then refine the list of things in the problem domain
 
@@ -75,24 +78,26 @@ The noun technique involves listing all the nouns that come up in discussions or
 **Cardinality**
 - The possible amount of association
 - e.g., "1 ----> 3" means 1 left can associate with 3 right
+
 **Multiplicity**
 - The min and max possible amount of association
 - e.g., "0..1 ----> 1..3" means 0 to 1 left can associate with 1 to 3 right
 - UML avoids the term cardinality and only uses multiplicity
-**C+M**
-- e.g., "0..1 ----> 3" means the left side has multiplicity, with only cardinality on the right
 
-**binary associations**
-- associations between exactly two distinct types of things
+**C-M Mixed Representation**
+- e.g., "0..1 ----> 3" has left multiplicity, and right cardinality
 
-**unary association**
-- an association between two instances of the same type of thing
+**Binary associations**
+- Associations between exactly two distinct types of things
 
-**ternary association**
-- an association between exactly three distinct types of things
+**Unary association**
+- Association between two instances of the same type of thing
 
-**n-ary association**
-- an association between n distinct types of thing
+**Ternary association**
+- Association between exactly three distinct types of things
+
+**N-ary association**
+- Association between n distinct types of thing
 
 ## Entity Relationship Diagram (ERD)
 
@@ -125,8 +130,10 @@ A diagram consisting of data entities (i.e., sets of things) and their relations
 
 **Abstract class**
 - Allow subclasses to inherit characteristics but cannot have instances. In Italics
+
 **Concrete class**
 - Standard class, can have instances
+
 **Inheritance**
 - Inherit from a parent class's variables and methods
 - e.g., SavingAccount class can inherit from Account class
@@ -137,15 +144,20 @@ A diagram which shows the life of an object in states and transitions
 
 **Origin state**
 - the original state of an object before it begins a transition
+
 **Destination state**
 - Represented as boxes with rounded corners
 - the state to which an object moves after completing a transition
+
 **Pseudostate ●**
-- the starting point in a state machine diagram. Noted by a black circle.
+- the starting point in a state machine diagram. Noted by a black circle
+
 **Action-expression**
 - some activity that must be completed as part of a transition
+
 **Guard-condition**
 - a true/false test to see whether a transition can fire
+
 **Concurrent paths**
 - Represented as a cross-off line, parallel paths arrive at this line at the same time
 - When multiple paths are being followed concurrently
@@ -154,7 +166,7 @@ A diagram which shows the life of an object in states and transitions
 
 ### Noun & Brainstorming Technique
 
-When analyzing the list of nouns to determine whether to exclude a particular noun as an important "thing," which of the following questions should be asked about the noun? (choose two)
+When analyzing the list of nouns to determine whether to exclude a particular noun as an important "thing," which of the following questions should be asked about the noun?
 - Is it a synonym of an existing thing?
 - Is it an output from the system?
 
