@@ -64,8 +64,8 @@ Identify by finding & classifying the nouns in a dialog or description
   - Is it important
   - Is it in scope
   - Is it really a thing (e.g., a report or an arribute is not)
-  - Is it requiring further research / doublechecks
-4. Create a master list of all nouns identified, add note on items that should be included
+  - Is it still unclear? (requiring further research)
+4. Write a master list of all nouns identified, add note on items that should be included
 5. Review the list with users, stakeholders, and team members and then refine the list of things in the problem domain
 
 ### Attributes of "Things" (Problem Domain Objects / Classes)
@@ -155,12 +155,21 @@ A diagram which shows the life of an object in states and transitions
 **Action-expression**
 - some activity that must be completed as part of a transition
 
-**Guard-condition**
-- a true/false test to see whether a transition can fire
-
 **Concurrent paths**
 - Represented as a cross-off line, parallel paths arrive at this line at the same time
 - When multiple paths are being followed concurrently
+
+**Trigger →**
+- The cause of the transition (signal, event, temperature, datetime)
+- "(state)—— Trigger cond. [Guard cond.] / Effect cond. ——>(state)"
+
+**Guard →**
+- True/False test to see whether a transition can fire
+- "(state)—— Trigger cond. [Guard cond.] / Effect cond. ——>(state)"
+
+**Effect**
+- An action which will be invoked directly on the object that owns the state machine as a result of the transition.
+- "(state)—— Trigger cond. [Guard cond.] / Effect cond. ——>(state)"
 
 ## Quiz
 
@@ -342,6 +351,8 @@ Which of the following documents information about classes that are part of the 
 
 Which of the following is NOT a step in the development of a state machine diagram?
 - Expand the name of each state to identify concurrent activities
+
+What is a trigger in state machine diagram?
 
 Which of the following is NOT an element in a transition label?
 - Trigger
