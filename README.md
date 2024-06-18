@@ -1,13 +1,158 @@
-# Object-Oriented-Analysis-Design-Review-4
+# Object-Oriented-Analysis-Design-Review-M4
 
+## Problem Domain
 
+A portion of area / domain of the users' business needed
+- This area / domain is aligned with the scope of the system to be designed
+- Comprised of multiple collections of "things"
 
-## Data Entities
+## "Things" Problem Domain Objects / Classes
 
-In the traditional approach to system development, the system stores information about ____.​
-- Data entities
+A small set of problem domain for one actor, involving items an actor interacts with, objects in system possesses. They have little to do with programming knowledges, but must be fully understood before development
+- For embedded software for telecomms, they are:
+  - Ethernet
+  - VoIP
+  - Video protocols
+  - Video codecs
+- For the Ridge Mountain Olympics CSMS, they are:
+  - Sales
+  - Shippers
+  - advertisement
+  - Customers
+  - Invoices
+  - Payments
+  - Products
+- For photography business, they are:
+  - Camera
+  - Filming equipments
+  - eCommerce
+  - advertisement
+  - Shippers
+  - Clothing
+  - Customers
+  - Invoices
+  - Payments
+  - Products
+- Modeled as domain classes or data entities
 
-## Noun & Brainstorming Technique
+## Identify "Things" (Problem Domain Objects / Classes)
+
+### Brainstorming technique
+
+Identify in which developers work with users in an open group setting
+
+1. Identify a user and a set of use cases.
+2. Brainstorm with the user to identify problem domain objects / classes involved when carrying out the use case
+  - that is, "things" are about which information should be captured by the system
+3. Use the types of things (categories) to systematically ask questions about potential things, such as:
+  - Any tangible things you store information about?
+  - Any locations involved?
+  - Any roles played by people that you need to remember?
+4. Continue to work with all types of users and stakeholders to expand the brainstorming list
+5. Merge the results, eliminate any duplicates, and compile an initial list
+
+### Noun technique
+
+Identify by finding and classifying the nouns in a dialog or description
+
+1. Study use cases, actors, other information (e.g., input & outputs) about the system
+2. Study other info from existing systems, current procedures, and current reports or forms
+  - The goal is to identify all nouns
+3. Refine the gathered list of nouns:
+  - Is it important and inside the scope
+  - Is it really should be excluded, (e.g., a report or an arribute is not a problem domain object / class)
+  - Is it require further research to decide whether it should be included or excluded
+4. Create a master list of all nouns identified, add note on items that should be included
+5. Review the list with users, stakeholders, and team members and then refine the list of things in the problem domain
+
+### Attributes of "Things" (Problem Domain Objects / Classes)
+
+The noun technique involves listing all the nouns that come up in discussions or requirements, but many of these nouns are actually attributes, not things.
+- e.g., "Ethernet" is not an attribute, "password", "date" or "color" is an attribute
+
+### Associations Among "Things" (Problem Domain Objects / Classes)
+
+**Cardinality**
+- The possible amount of association
+- e.g., "1 ----> 3" means 1 left can associate with 3 right
+**Multiplicity**
+- The min and max possible amount of association
+- e.g., "0..1 ----> 1..3" means 0 to 1 left can associate with 1 to 3 right
+- UML avoids the term cardinality and only uses multiplicity
+**C+M**
+- e.g., "0..1 ----> 3" means the left side has multiplicity, with only cardinality on the right
+
+**binary associations**
+- associations between exactly two distinct types of things
+
+**unary association**
+- an association between two instances of the same type of thing
+
+**ternary association**
+- an association between exactly three distinct types of things
+
+**n-ary association**
+- an association between n distinct types of thing
+
+## Entity Relationship Diagram (ERD)
+
+A diagram consisting of data entities (i.e., sets of things) and their relationships
+
+**Data entities**
+- The term used in an ER diagram to describe sets of things or individual things
+
+**Crow's feet notation**
+- "1, 0, multiple" represented by "|, ○, >, <" on the association line
+
+**Semantic net**
+- A graphical representation of an individual data entity and its relationship with other individual data entities
+- Helps to understand and design an ERD model
+  - e.g., Join places order:
+    - Actor entity: Join
+    - Order entity: id 1, feb 4
+    - Item entity: microphone
+
+**Attributes**
+- descriptive pieces of information about things or objects
+
+**Identifier or key**
+- an attribute the value of which uniquely identifies an individual thing or object
+
+**Compound attribute**
+- an attribute that consists of multiple pieces of information but is best treated in the aggregate
+
+## Generalization / Specialization
+
+**Abstract class**
+- Allow subclasses to inherit characteristics but cannot have instances. In Italics
+**Concrete class**
+- Standard class, can have instances
+**Inheritance**
+- Inherit from a parent class's variables and methods
+- e.g., SavingAccount class can inherit from Account class
+
+## State Machine Diagram
+
+A diagram which shows the life of an object in states and transitions
+
+**Origin state**
+- the original state of an object before it begins a transition
+**Destination state**
+- Represented as boxes with rounded corners
+- the state to which an object moves after completing a transition
+**Pseudostate ●**
+- the starting point in a state machine diagram. Noted by a black circle.
+**Action-expression**
+- some activity that must be completed as part of a transition
+**Guard-condition**
+- a true/false test to see whether a transition can fire
+**Concurrent paths**
+- Represented as a cross-off line, parallel paths arrive at this line at the same time
+- When multiple paths are being followed concurrently
+
+## Quiz
+
+### Noun & Brainstorming Technique
 
 When analyzing the list of nouns to determine whether to exclude a particular noun as an important "thing," which of the following questions should be asked about the noun? (choose two)
 - Is it a synonym of an existing thing?
@@ -17,7 +162,7 @@ When making a list of nouns to determine what are the important "things" for the
 - ​Should it be researched further?
 
 The noun technique can be thought of as a variation of the brainstorming technique.​
-- False
+- False, they are very different
 
 One technique to find the "things" that need to be included in the new system begins by starting with a user and the use cases and then try to identify the necessary informational "things." This technique is called the _______.
 - Brainstorming technique
@@ -28,7 +173,9 @@ One technique for finding "things" that need to be in the new system is done by 
 When using the brainstorming technique it is often helpful to think about each use case and talking to users.​
 - True
 
-## Attributes
+-----
+
+### Attributes
 
 An attribute whose value uniquely identifies an object is called a(n) _______.​
 - key attribute
@@ -39,7 +186,12 @@ Descriptive properties of things in the problem domain are often documented as w
 A piece of information about a particular object is called a(n) _______.
 - Attribute
 
-## Problem Domain
+In the traditional approach to system development, the system stores information about ____.​
+- Data entities
+
+-----
+
+### Problem Domain
 
 The specific area of the user's business need that is within the scope of the new system is called the _______.​
 - ​problem domain
@@ -47,16 +199,10 @@ The specific area of the user's business need that is within the scope of the ne
 When identifying things in the problem domain, an analyst should focus primarily on tangible things about which information is required.​
 - False
 
-A state-machine diagram is usually developed for every class in the problem domain class diagram.​
-- False
+-----
 
-Every state-machine diagram must have both origin states and destination states.
-- True
+### UML Relationships
 
-For real-world objects the state of an object is the same as its _______
-- Status condition
-
-## Relationships
 Which of the following relationships would NOT be an appropriate way to describe a relationship between an employee and his/her manager?
 - Association
 
@@ -96,8 +242,9 @@ In a generalization/specialization relationship, it would not make sense for a c
 If we modeled a "sale" and the "sale items" with a whole-part relationship, it would best be described as a _______ relationship.
 - Composite
 
-The above cardinality constraint on the Order data entity indicates that there can be _____
-- One or many orders
+-----
+
+### Entity Relationship Diagram
 
 A synonym for cardinality (used with UML class diagrams) is ____.​
 - multiplicity
@@ -120,16 +267,30 @@ In UML the constraint denoted by "0..*" indicates what?
 Which of the following is NOT true about a UML class.
 - It has multiplicity.
 
-## State Machine
+A semantic net illustrates individual objects within a class diagram.
+- True
+
+Above cardinality constraint on the Order data entity indicates that there can be _____
+- One or many orders
+
+-----
+
+### State Machine Diagram
+
+For real-world objects the state of an object is the same as its _______
+- Status condition
+
+A state-machine diagram is usually developed for every class in the problem domain class diagram.​
+- False
+
+Every state-machine diagram must have both origin states and destination states.
+- True
 
 The guard-condition on a transition indicates what?​
 - Whether the transition fires.
 
 A state machine diagram is used to document the states and transitions of a(n) _______ .
 - Object
-
-A semantic net illustrates individual objects within a class diagram.
-- True
 
 One way to determine whether an occurrence is an event or part of the interaction before or after an event is by asking if any long pauses or intervals occur.
 - False: a event can be milliseconds long
